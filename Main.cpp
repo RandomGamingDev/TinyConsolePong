@@ -16,7 +16,12 @@ int main() {
     std::cout << "Pong!\n Press Enter to Continue:\n";
     std::cin.get();
     while (true) {
-        Sleep(100); std::system("cls");
+        Sleep(100); 
+	#ifdef _WIN32
+	std::system("cls");
+	#else
+	std::system("clear");
+	#endif
         for (int i = 0; i < sizeof(display) / sizeof(display[0]); i++) {
             for (int j = 0; j < sizeof(display[0]) / sizeof(display[0][0]); j++) {
                 std::cout << display[i][j];
